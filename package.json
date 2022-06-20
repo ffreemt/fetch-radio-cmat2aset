@@ -1,0 +1,21 @@
+{
+    "dependencies": {
+        "npm-run-all": "^4.1.5"
+    },
+    "scripts": {
+        "start": "pyright && pytest && yarn style",
+        "test": "nodemon -w tests -w fetch_radio_cmat2aset -x pytest tests",
+        "pyright": "nodemon -w fetch_radio_cmat2aset -w .venv -e .py -x pyright fetch_radio_cmat2aset tests",
+        "pytest": "nodemon -w tests -w fetch_radio_cmat2aset -e .py -x pytest tests fetch_radio_cmat2aset",
+        "style": "nodemon -w fetch_radio_cmat2aset -w tests -x \"black tests fetch_radio_cmat2aset && python -m flake8\"",
+        "docstyle": "nodemon -w fetch_radio_cmat2aset -w tests -x pydocstyle --convention=google tests fetch_radio_cmat2aset",
+        "pylint": "nodemon -w fetch_radio_cmat2aset -e .py -x pylint fetch_radio_cmat2aset",
+        "test:fetch_radio_cmat2aset": "nodemon -w tests -e .py -x pytest -k fetch_radio_cmat2aset tests",
+        "publish": "poetry build && poetry publish",
+        "black": "black tests fetch_radio_cmat2aset",
+        "flake8": "flake8 tests fetch_radio_cmat2aset",
+        "pflake8": "pflake8 tests fetch_radio_cmat2aset",
+        "pep257": "pep257 tests fetch_radio_cmat2aset",
+        "final": "run-s docstyle black flake8 pytest"
+    }
+}
